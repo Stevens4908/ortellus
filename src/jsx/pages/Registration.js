@@ -1,3 +1,4 @@
+/*
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { connect, useDispatch } from 'react-redux';
@@ -46,7 +47,7 @@ function Register(props) {
                                 <div className='auth-form'>
                                     {/* <div className='text-center mb-3'>
                                         <img src={logo} alt="" />
-                                    </div> */}
+                                    </div> *//*
 
                                     <h4 className='text-center mb-4 '>Sign up your account</h4>
                                     {props.errorMessage && (
@@ -119,4 +120,5 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(Register);
+export default connect(mapStateToProps)(Register); */
+

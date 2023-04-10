@@ -1,51 +1,83 @@
-import React from "react";
-//import { Link } from "react-router-dom";
-const ForgotPassword = ({ history }) => {
-   const onSubmit = (e) => {
-      e.preventDefault();
-      history.push("/");
-   };
-   return (
-      <div className="authincation h-100 p-meddle">
-         <div className="container h-100">
-            {" "}
-            <div className="row justify-content-center h-100 align-items-center">
-               <div className="col-md-6">
-                  <div className="authincation-content">
-                     <div className="row no-gutters">
-                        <div className="col-xl-12">
-                           <div className="auth-form">
-                              <h4 className="text-center mb-4">
-                                 Olvidé la contraseña
-                              </h4>
-                              <form onSubmit={(e) => onSubmit(e)}>
-                                 <div className="form-group">
-                                    <label>
-                                       <strong>Email</strong>
-                                    </label>
-                                    <input
-                                       type="email"
-                                       className="form-control"
-                                       defaultValue="hello@example.com"
-                                    />
-                                 </div>
-                                 <div className="text-center">
-                                    <input
-                                       type="submit"
-                                       value="SUBMIT"
-                                       className="btn btn-primary btn-block"
-                                    />
-                                 </div>
-                              </form>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   );
-};
+import { useState } from 'react';
+import { Form, Button } from 'react-bootstrap';
+import loginbg from "../../images/bg-login.jpg";
 
-export default ForgotPassword;
+
+function ForgotPassword() {
+
+
+    function validateForm() {
+        return currentPassword.length >= 6 && password.length >= 6 && password === confirmPassword;
+      }
+
+
+
+  const [email, setEmail] = useState('');
+  const [currentPassword, setCurrentPassword] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [message, setMessage] = useState('');
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    fetch('/api/reset-password', {
+      method: 'POST',
+      body: JSON.stringify({ email, currentPassword, password, confirmPassword }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => response.json())
+      .then(data => setMessage(data.message))
+      .catch(error => setMessage('An error occurred while resetting your password.'));
+  }
+
+  return (
+<div className='login-main-page' style={{backgroundImage:"url("+ loginbg +")"}}>
+  <div className='container bg-success mt-5 p-5 '  >
+    <Form onSubmit={handleSubmit}>
+      <Form.Group controlId="formBasicEmail">
+        <Form.Label>Email</Form.Label>
+        <Form.Control
+          type="email"
+          
+          value={email}
+          onChange={event => setEmail(event.target.value)}
+        />
+      </Form.Group>
+      <Form.Group controlId="formBasicCurrentPassword">
+        <Form.Label>Contraseña Actual</Form.Label>
+        <Form.Control
+          type="password"
+          
+          value={currentPassword}
+          onChange={event => setCurrentPassword(event.target.value)}
+        />
+      </Form.Group>
+      <Form.Group controlId="formBasicPassword">
+        <Form.Label>Nueva Contraseña</Form.Label>
+        <Form.Control
+          type="password"
+          
+          value={password}
+          onChange={event => setPassword(event.target.value)}
+        />
+      </Form.Group>
+      <Form.Group controlId="formBasicConfirmPassword">
+        <Form.Label>Confirma la Nueva Contraseña</Form.Label>
+        <Form.Control
+          type="password"
+          value={confirmPassword}
+          onChange={event => setConfirmPassword(event.target.value)}
+        />
+      </Form.Group>
+      <Button variant="primary" type="submit" disabled={!validateForm(false)}>
+        Aceptar
+      </Button >
+      {message && <div className="mt-3">{message}</div>}
+    </Form></div>  </div>
+  );
+}
+
+export default ForgotPassword

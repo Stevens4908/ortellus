@@ -845,16 +845,16 @@ class SideBar extends Component {
 
           </MM>
 			<div className="plus-box">
-				<p className="fs-13 font-w300 mb-4">Organize your menus through button bellow</p>
-				<Link className="btn bg-white text-black btn-rounded d-block" to="#">+Add Menus</Link>
+				<p className="fs-13 font-w300 mb-4">Organiza tus menús con el botón de abajo</p>
+				<Link className="btn bg-white text-black btn-rounded d-block" to="#">+Añadir Menú</Link>
 			</div>
 			<div className="copyright">
 				<p>
-				  <strong>Koki Restaurant React Dashboard</strong> © 2021 All
+				  <strong>Ortellus Restaurant Dashboard</strong> © 2023 All
 				  Rights Reserved
 				</p>
 				<p>
-				  Made with{" "}
+				  Made {""}
 				  <span
 					className={`${
 					  this.state.loveEmoji ? "heart heart-blast" : "heart"
@@ -863,7 +863,7 @@ class SideBar extends Component {
 					  this.setState({ loveEmoji: !this.state.loveEmoji })
 					}
 				  ></span>{" "}
-				  by DexignZone
+				  by Adworkchain
 				</p>
 			  </div>
 			</PerfectScrollbar>

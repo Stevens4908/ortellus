@@ -40,7 +40,7 @@ function Login (props) {
   return (
         <div className="login-main-page" style={{backgroundImage:"url("+ loginbg +")"}}>
             <div className="login-wrapper">
-                <div className="login-aside-left" style={{backgroundImage:"url("+ login +")"}}>
+              {/*  <div className="login-aside-left" style={{backgroundImage:"url("+ login +")"}}>
                     <Link to="/dashboard" className="login-logo">
                         <img src={logo} alt="" className="mr-2"/>
                         <img src={logotext} alt="" className="ml-1"/>
@@ -58,18 +58,18 @@ function Login (props) {
                             <Link to={"#"} className="text-black mr-4">Contact</Link>
                             <Link to={"#"} className="text-black">© 2023 Adworkchain</Link>
                         </div>
-                    </div>
-                </div>
-                <div className="login-aside-right">
-                    <div className="row m-0 justify-content-center h-100 align-items-center">
+                      </div>
+                </div>*/}
+                <div className="login-aside-right justify-content-center">
+                    <div className="row m-0 justify-content-center h-100 align-items-center bg-success">
                       <div className="col-xl-9 col-xxl-9">
                         <div className="authincation-content">
                           <div className="row no-gutters">
                             <div className="col-xl-12">
                               <div className="auth-form-1">
                                 <div className="mb-4">
-                                    <h3 className="text-white mb-1">Welcome to Ortelus</h3>
-                                    <p className="text-white">Sign in by entering information below</p>
+                                    <h3 className="text-white mb-1">Bienvenido a Ortelus</h3>
+                                    
                                 </div>
                                 {props.errorMessage && (
                                     <div className='bg-red-300 text-red-900 border border-red-900 p-1 my-2'>
@@ -93,7 +93,7 @@ function Login (props) {
                                       {errors.email && <div className="text-danger fs-12">{errors.email}</div>}
                                     </div>
                                     <div className="form-group">
-                                        <label className="mb-2 "><strong className="text-white">Password</strong></label>
+                                        <label className="mb-2 "><strong className="text-white">Contraseña</strong></label>
                                         <input
                                           type="password"
                                           className="form-control"
@@ -116,7 +116,7 @@ function Login (props) {
                                           className="form-check-label text-white"
                                           htmlFor="basic_checkbox_1 "
                                         >
-                                          Remember my preference
+                                          Recordar mis datos
                                         </label>
                                       </div>
                                     </div>
@@ -126,15 +126,15 @@ function Login (props) {
                                       type="submit"
                                       className="btn bg-white text-primary btn-block"
                                     >
-                                      Sign In
+                                     Ingresar
                                     </button>
                                   </div>
                                 </form>
                                 <div className="new-account mt-2">
                                   <p className="text-white">
-                                    Don't have an account?{" "}
-                                    <Link className="text-white" to="./page-register">
-                                      Sign up
+                                   
+                                    <Link className="text-warning" to="./page-forgot-password">
+                                      Olvidé la contraseña
                                     </Link>
                                   </p>
                                 </div>
