@@ -9,6 +9,8 @@ import logo from '../../images/logo.png'
 import logotext from '../../images/logo-text.png'
 import login from "../../images/bg-login2.png";
 import loginbg from "../../images/bg-login.jpg";
+import bg from "../../images/bg-1.jpg";
+
 
 function Login (props) {
     const [email, setEmail] = useState('demo@example.com');
@@ -38,7 +40,7 @@ function Login (props) {
     }
 
   return (
-        <div className="login-main-page" style={{backgroundImage:"url("+ loginbg +")"}}>
+        <div className="login-main-page" style={{backgroundImage:"url("+ bg +")"}}>
             <div className="login-wrapper">
               {/*  <div className="login-aside-left" style={{backgroundImage:"url("+ login +")"}}>
                     <Link to="/dashboard" className="login-logo">
@@ -60,8 +62,8 @@ function Login (props) {
                         </div>
                       </div>
                 </div>*/}
-                <div className="login-aside-right justify-content-center">
-                    <div className="row m-0 justify-content-center h-100 align-items-center bg-success">
+                <div className="login-aside-right justify-content-center ">
+                    <div className="row m-0 justify-content-center h-100 align-items-center login-wrapper2">
                       <div className="col-xl-9 col-xxl-9">
                         <div className="authincation-content">
                           <div className="row no-gutters">

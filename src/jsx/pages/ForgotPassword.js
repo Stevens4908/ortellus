@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import loginbg from "../../images/bg-login.jpg";
-
+import bg from "../../images/bg-1.jpg";
 
 function ForgotPassword() {
 
@@ -34,11 +34,11 @@ function ForgotPassword() {
   }
 
   return (
-<div className='login-main-page' style={{backgroundImage:"url("+ loginbg +")"}}>
-  <div className='container bg-success mt-5 p-5 '  >
+<div className='login-main-page' style={{backgroundImage:"url("+ bg +")"}}>
+  <div className='container login-wrapper2 mt-5 p-5 '  >
     <Form onSubmit={handleSubmit}>
       <Form.Group controlId="formBasicEmail">
-        <Form.Label>Email</Form.Label>
+        <Form.Label className='text-white'>Email</Form.Label>
         <Form.Control
           type="email"
           
@@ -47,7 +47,7 @@ function ForgotPassword() {
         />
       </Form.Group>
       <Form.Group controlId="formBasicCurrentPassword">
-        <Form.Label>Contraseña Actual</Form.Label>
+        <Form.Label className='text-white'>Contraseña Actual</Form.Label>
         <Form.Control
           type="password"
           
@@ -56,7 +56,7 @@ function ForgotPassword() {
         />
       </Form.Group>
       <Form.Group controlId="formBasicPassword">
-        <Form.Label>Nueva Contraseña</Form.Label>
+        <Form.Label className='text-white' >Nueva Contraseña</Form.Label>
         <Form.Control
           type="password"
           
@@ -65,7 +65,7 @@ function ForgotPassword() {
         />
       </Form.Group>
       <Form.Group controlId="formBasicConfirmPassword">
-        <Form.Label>Confirma la Nueva Contraseña</Form.Label>
+        <Form.Label className='text-white'>Confirma la Nueva Contraseña</Form.Label>
         <Form.Control
           type="password"
           value={confirmPassword}

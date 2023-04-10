@@ -27116,7 +27116,7 @@ table.dataTable thead th {
   position: relative;
   z-index: 1; }
   .login-main-page .login-wrapper {
-    background: #dd2f6e;
+ 
     max-width: 1170px;
     margin-left: auto;
     margin-right: auto; }
@@ -27138,7 +27138,19 @@ table.dataTable thead th {
     .login-main-page {
       padding: 0px; } }
 
+      .login-wrapper2{
+        
+
+background: rgba(255, 255, 255, 0.2);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
 .login-wrapper {
+  
   display: flex;
   min-height: 600px;
   height: calc(100vh - 200px);
@@ -27153,7 +27165,7 @@ table.dataTable thead th {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;
-    background-color: #fff; }
+     }
     .login-wrapper .login-aside-left:after {
       position: absolute;
       top: 0;
