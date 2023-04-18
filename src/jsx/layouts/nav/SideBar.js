@@ -48,8 +48,8 @@ class SideBar extends Component {
     /// Active menu
     let restaurante = [
         "",
-        "analytics",
-        "review",
+        "addteam",
+        "mesas",
         "order",
         "order-list",
         "customer-list",
@@ -165,40 +165,40 @@ class SideBar extends Component {
             <li className={`${restaurante.includes(path) ? "mm-active" : ""}`}>
               <Link className="has-arrow ai-icon" to="#" >
                 <i className="flaticon-381-networking"></i>
-                <span className="nav-text">Restaurante</span>
+                <span className="nav-text">Admin</span>
               </Link>
 				<ul >
 					<li>
-						<Link className={`${path === "" ? "mm-active" : ""}`} to="/" onClick={() => this.props.onClick3()}>Restaurante</Link>
+						<Link className={`${path === "" ? "mm-active" : ""}`} to="/" onClick={() => this.props.onClick3()}>Admin</Link>
 					</li>
 					<li>
-						<Link className={`${path === "analytics" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/analytics">
-							Analytics
+						<Link className={`${path === "addteam" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/addteam">
+							Agregar Equipo
 						</Link>
 					</li>
 					<li>
-						<Link className={`${path === "review" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/review" >
-							Review
+						<Link className={`${path === "mesas" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/mesas" >
+							Mesas
 						</Link>
 					</li>
 					<li>
-						<Link className={`${path === "order" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/order">
-							Order
+						<Link className={`${path === "order" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/crear-cupon">
+							Crear Cupon
 						</Link>
 					</li>
 					<li>
-						<Link className={`${path === "order-list" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/order-list">
-							Order List
+						<Link className={`${path === "order-list" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/crear-proveedor">
+							Crear Proveedor
 						</Link>
 					</li>
 					<li>
-					  <Link className={`${ path === "customer-list" ? "mm-active" : "" }`} onClick={() => this.props.onClick()} to="/customer-list"
+					  <Link className={`${ path === "customer-list" ? "mm-active" : "" }`} onClick={() => this.props.onClick()} to="/costos-fijos"
 					  >
-						Customer List
+						Costos Fijos
 					  </Link>
 					</li>
 					<li>
-						<Link className={`${path === "task" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/task">Task</Link>
+						<Link className={`${path === "task" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/menu">Menu</Link>
 					</li>						
 				</ul>
             </li>
@@ -211,14 +211,14 @@ class SideBar extends Component {
             <li className={`${empleados.includes(path) ? "mm-active" : ""}`}>
               <Link className="has-arrow ai-icon" to="#" >
                 <i className="flaticon-381-television"></i>
-                <span className="nav-text">Empleados</span>
+                <span className="nav-text">Mesero</span>
               </Link>
               <ul >
                 <li>
-					<Link className={`${path === "app-profile" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/app-profile">Profile</Link>
+					<Link className={`${path === "app-profile" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/numero-de-mesas">Numero de Mesas</Link>
                 </li>
 				<li>
-					<Link className={`${path === "post-details" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/post-details">Post Details</Link>
+					<Link className={`${path === "post-details" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/mesas-atendidas">Mesas Atendidas</Link>
                 </li>
 
 
@@ -264,7 +264,7 @@ class SideBar extends Component {
                   </ul>
                 </li>  */}
 
-
+{/*
                 <li>
                   <Link
                     className={`${path === "app-calender" ? "mm-active" : ""}`}
@@ -274,7 +274,7 @@ class SideBar extends Component {
                     Calendar
                   </Link>
                 </li>
-
+*/}
 
               {/*  <li className={`${shop.includes(path) ? "mm-active" : ""}`}>
                   <Link className="has-arrow" to="#" >
@@ -376,25 +376,25 @@ class SideBar extends Component {
             <li className={`${mesas.includes(path) ? "mm-active" : ""}`}>
               <Link className="has-arrow ai-icon" to="#" >
                 <i className="flaticon-381-controls-3"></i>
-                <span className="nav-text">Mesas</span>
+                <span className="nav-text">Cajero</span>
               </Link>
               <ul >
                 <li>
                   <Link
                     className={`${path === "chart-rechart" ? "mm-active" : ""}`}
                     onClick={() => this.props.onClick()}
-                    to="/chart-rechart"
+                    to="/crear-caja"
                   >
-                    RechartJs
+                    Crear Caja
                   </Link>
                 </li>
                 <li>
                   <Link
                     className={`${path === "chart-chartjs" ? "mm-active" : ""}`}
                     onClick={() => this.props.onClick()}
-                    to="/chart-chartjs"
+                    to="/servicio-caja"
                   >
-                    Chartjs
+                    Servicio en Caja
                   </Link>
                 </li>
                 <li>
@@ -403,9 +403,9 @@ class SideBar extends Component {
                       path === "chart-chartist" ? "mm-active" : ""
                     }`}
                     onClick={() => this.props.onClick()}
-                    to="/chart-chartist"
+                    to="/control-mesas"
                   >
-                    Chartist
+                    Control Mesas
                   </Link>
                 </li>
                 <li>
@@ -414,12 +414,12 @@ class SideBar extends Component {
                       path === "chart-sparkline" ? "mm-active" : ""
                     }`}
                     onClick={() => this.props.onClick()}
-                    to="/chart-sparkline"
+                    to="/cierre-caja"
                   >
-                    Sparkline
+                    Cierre Caja
                   </Link>
                 </li>
-                <li>
+               {/* <li>
                   <Link
                     className={`${
                       path === "chart-apexchart" ? "mm-active" : ""
@@ -429,14 +429,14 @@ class SideBar extends Component {
                   >
                     Apexchart
                   </Link>
-                </li>
+                  </li>*/}
               </ul>
             </li>
 
 
 
 
-
+{/*
 
             <li className={`${productos.includes(path) ? "mm-active" : ""}`}>
               <Link className="has-arrow ai-icon" to="#" >
@@ -658,7 +658,7 @@ class SideBar extends Component {
 				<li>
 					<Link className={`${path === "uc-lightgallery" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/uc-lightgallery">Light Gallery</Link>
                 </li>
-                {/* <li><Link className={`${path === "posts" ? "mm-active" : ""}`} to="/posts">Posts</Link></li> */}
+                 <li><Link className={`${path === "posts" ? "mm-active" : ""}`} to="/posts">Posts</Link></li> 
               </ul>
             </li>
 
@@ -835,7 +835,7 @@ class SideBar extends Component {
               </ul>
             </li>
 
-
+*/}
 
 
 

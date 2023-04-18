@@ -107,6 +107,28 @@ import Todo from './pages/Todo';
 import ScrollToTop from './layouts/ScrollToTop';
 
 
+
+//admin
+import AddTeam from './components/admin/AddTeam'
+import Mesas from './components/admin/Mesas'
+import CrearCupon from './components/admin/CrearCupon'
+import CrearProveedor from './components/admin/CrearProveedor'
+import CostosFijos from './components/admin/CostosFijos'
+import Menu from './components/admin/Menu'
+
+//mesero
+import NumeroMesas from './components/mesero/NumeroMesas'
+import MesasAtendidas from './components/mesero/MesasAtendidas'
+
+//cajero
+import CrearCaja from './components/cajero/CrearCaja'
+import CajaServicio from './components/cajero/CajaServicio'
+import ControlMesas from './components/cajero/ControlMesas'
+import CierreCaja from './components/cajero/CierreCaja'
+
+
+
+
 const Markup = () => {
   let path = window.location.pathname
   path = path.split('/')
@@ -115,6 +137,33 @@ const Markup = () => {
   const [activeEvent, setActiveEvent] = useState(!path)
 
   const routes = [
+
+/// admin 
+
+    { url: "addteam", component: AddTeam },
+    { url: "mesas", component: Mesas },
+    { url: "crear-cupon", component: CrearCupon },
+    { url: "crear-proveedor", component: CrearProveedor },
+    { url: "costos-fijos", component: CostosFijos },
+    { url: "menu", component: Menu },
+
+
+/// mesero
+
+{ url: "numero-de-mesas", component: NumeroMesas },
+{ url: "mesas-atendidas", component: MesasAtendidas },
+
+
+
+///cajero
+
+{ url: "crear-caja", component: CrearCaja },
+{ url: "servicio-caja", component: CajaServicio },
+{ url: "control-mesas", component: ControlMesas },
+{ url: "cierre-caja", component: CierreCaja },
+
+
+
     /// Dashboard
     { url: "", component: Home },
     { url: "dashboard", component: Home },
