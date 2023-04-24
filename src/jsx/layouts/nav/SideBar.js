@@ -177,7 +177,7 @@ class SideBar extends Component {
 						</Link>
 					</li>
 					<li>
-						<Link className={`${path === "mesas" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/mesas" >
+						<Link  onClick={() => this.props.onClick()} to="/mesas" >
 							Mesas
 						</Link>
 					</li>
