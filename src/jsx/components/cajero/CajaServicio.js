@@ -1,15 +1,21 @@
 import React, { Fragment } from "react";
+import axios from 'axios';
+//import { saludo } from '../mike';
 
+ 
 
    
 const CajaServicio = () => {
    
+    //saludo()
    return (
-
+            
         <Fragment>
 
+    
 <div class="container">
         <div class="row py-1">
+                
             <div class="col-12 text-center list-group-item list-group-item">
     <form>
         <div class="col-12 my-2">
@@ -46,7 +52,7 @@ const CajaServicio = () => {
             </div>
             <div class="col-3">
                 
-                <button type="submit" class="btn btn-danger">IMPRIMIR FACTURA</button>
+                <button type="submit" class="btn btn-danger">IMPRIMIR FACTURA mike sa</button>
             </div>
         </div>
       </form>

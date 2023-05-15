@@ -1,11 +1,28 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { Tab, Nav,Dropdown } from "react-bootstrap";
-
-
-   
+  
 const AddTeam = () => {
-   
+  const [cedula, setCedula] = useState('');
+  const [telefono, setTelefono] = useState('');
+  const [direccion, setDireccion] = useState('');
+  
+  function saludo() {
+    
+    fetch("http://127.0.0.1:8000/api/cliente/1")
+      .then(response => response.json())
+
+      .then(datareact => {
+        //console.log("dato",datareact.data.Cedula)
+        setCedula(datareact.data.Cedula);
+        setTelefono(datareact.data.Telefono);
+        setDireccion(datareact.data.Direccion);
+        
+      })
+      .catch(error => console.error(error));
+  }
+  //console.log("hola")
+  //saludo();
    return (
 
         <Fragment>
@@ -25,11 +42,25 @@ const AddTeam = () => {
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">CEDULA</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Cedula"/>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputPassword1"
+              placeholder="Cedula"
+              value={cedula}
+              onChange={e => setCedula(e.target.value)}
+              />
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">TELEFONO</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Telefono"/>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputPassword1"
+              placeholder="Telefono"
+              value={telefono}
+              onChange={e => setTelefono(e.target.value)}
+            />
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">CARGO</label>
@@ -37,11 +68,19 @@ const AddTeam = () => {
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">DIRECCION</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Direccion"/>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputPassword1"
+              placeholder="Direccion"
+              value={direccion}
+              onChange={e => setDireccion(e.target.value)}
+            />
           </div>
         
-        <button type="submit" class="btn btn-primary">REGISTRAR</button>
+          {/*<button type="submit" class="btn btn-primary" onClick={saludo}>REGISTRAR</button>*/} 
       </form>
+      <button type="button" class="btn btn-primary" onClick={saludo}>REGISTRAR</button>
       </div>
     </div>
 </div>

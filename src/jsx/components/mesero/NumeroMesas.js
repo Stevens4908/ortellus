@@ -1,9 +1,26 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 
 
    
 const NumeroMesas = () => {
-   
+    const [mesas, setMesas] = useState('');
+  
+  
+  
+
+        function mesaDisponibles() {
+    
+            fetch("http://127.0.0.1:8000/api/mesa")
+                .then(response => response.json())
+                .then(datareact => {
+                
+                setMesas(datareact.data.length);
+                })
+              .catch(error => console.error(error));
+          }
+
+          mesaDisponibles();
+          console.log("numero de mesas", mesas);
    return (
 
         <Fragment>

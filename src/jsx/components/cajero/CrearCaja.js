@@ -1,9 +1,20 @@
-import React, { Fragment } from "react";
-
+import React, { Fragment, useState } from "react";
 
    
 const CrearCaja = () => {
-   
+    const [Cedula, setCedula] = useState('');
+  const [Telefono, setTelefono] = useState('');
+
+function saludo() {
+    fetch("http://127.0.0.1:8000/api/cliente")
+      .then(response => response.json())
+      .then(datareact => {
+        setCedula(datareact.Cedula);
+        setTelefono(datareact.Telefono);
+      })
+      .catch(error => console.error(error));
+  }
+    saludo()
    return (
 
         <Fragment>

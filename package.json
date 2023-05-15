@@ -26,7 +26,7 @@
     "@tinymce/tinymce-react": "^3.10.1",
     "@y0c/react-datepicker": "^1.0.4",
     "apexcharts": "^3.22.2",
-    "axios": "^0.21.1",
+    "axios": "^0.21.4",
     "bootstrap": "^4.5.3",
     "chart.js": "^2.9.4",
     "chartist": "^0.11.4",
@@ -39,8 +39,8 @@
     "html-to-draftjs": "^1.5.0",
     "material-ui": "^0.20.2",
     "material-ui-color-picker": "^3.5.1",
-    "metismenujs": "^1.2.1",
     "mdbreact": "^5.0.1",
+    "metismenujs": "^1.2.1",
     "nouislider-react": "^3.3.9",
     "p-min-delay": "^3.1.0",
     "rc-color-picker": "^1.2.6",
@@ -92,7 +92,7 @@
     "yup": "^0.32.8"
   },
   "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
