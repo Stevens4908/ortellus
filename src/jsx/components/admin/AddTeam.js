@@ -1,12 +1,18 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Tab, Nav,Dropdown } from "react-bootstrap";
   
 const AddTeam = () => {
+  const [clientes, setClientes] = useState([]);
   const [cedula, setCedula] = useState('');
   const [telefono, setTelefono] = useState('');
   const [direccion, setDireccion] = useState('');
-  
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/api/cliente")
+      .then(response => response.json())
+      .then(datareact => setClientes(datareact.data))
+      .catch(error => console.error(error));
+  }, []);
   function saludo() {
     
     fetch("http://127.0.0.1:8000/api/cliente/1")
@@ -21,16 +27,15 @@ const AddTeam = () => {
       })
       .catch(error => console.error(error));
   }
-  //console.log("hola")
-  //saludo();
+  
    return (
 
         <Fragment>
-
+         
 	<div class="container">
         <div class="row py-1">
-            <div class="col-10 text-center list-group-item list-group-item">
-    <form>
+            <div class="col-12 text-center list-group-item list-group-item">
+            <form>
         <div class="form-group">
           <label for="exampleInputEmail1">NOMINA</label>
           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nomina"/>
@@ -81,6 +86,30 @@ const AddTeam = () => {
           {/*<button type="submit" class="btn btn-primary" onClick={saludo}>REGISTRAR</button>*/} 
       </form>
       <button type="button" class="btn btn-primary" onClick={saludo}>REGISTRAR</button>
+      <table class="table">
+      <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">NOMBRE COMPLETO</th>
+      <th scope="col">CEDULA</th>
+      <th scope="col">TELEFONO</th>
+      <th scope="col">CORREO</th>
+      <th scope="col">DIRECCION</th>
+    </tr>
+  </thead>
+  <tbody>
+  {clientes.map(cliente => (
+    <tr key={cliente.id}>
+      <th scope="row">{cliente.id}</th>
+      <td>{cliente.Nombre_Completo}</td>
+      <td>{cliente.Cedula}</td>
+      <td>{cliente.Telefono}</td>
+      <td>{cliente.Email}</td>
+      <td>{cliente.Direccion}</td>
+    </tr>
+  ))}
+  </tbody>
+</table>
       </div>
     </div>
 </div>

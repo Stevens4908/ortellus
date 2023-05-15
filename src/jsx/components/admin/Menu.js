@@ -1,9 +1,16 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 
 
    
 const Menu = () => {
-   
+    const [menus, setClientes] = useState([]);
+    useEffect(() => {
+        fetch("http://127.0.0.1:8000/api/producto")
+          .then(response => response.json())
+          .then(datareact => setClientes(datareact.data))
+          .catch(error => console.error(error));
+      }, []);
+
    return (
 
         <Fragment>
@@ -99,6 +106,32 @@ const Menu = () => {
     </div>
 </div>
 </form>
+<div class="row">
+    <div class="col-12 py-2">
+    <table class="table">
+      <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">NOMBRE DEL PRODUCTO</th>
+      <th scope="col">FECHA DEL PRODUCTO</th>
+      <th scope="col">DESCRIPCION DEL PRODUCTO</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+  {menus.map(menuss => (
+    <tr key={menuss.id}>
+      <th scope="row">{menuss.id}</th>
+      <td>{menuss.Nombre_producto}</td>
+      <td>{menuss.Fecha_producto}</td>
+      <td>{menuss.Descripcion_producto}</td>
+     
+    </tr>
+  ))}
+  </tbody>
+</table>
+    </div>
+</div>
 </div>
 </div>
 </div>
